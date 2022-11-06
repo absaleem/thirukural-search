@@ -14,7 +14,10 @@ h1_tag.style.marginTop='100px';
 h1_tag.innerHTML='1330 Thirukkural poems and explanation in Tamil and English ';
 
 var input=document.createElement("input");
-input.setAttribute("type","text");
+input.style.width='35%';
+input.setAttribute("type","number");
+input.setAttribute("min","1");
+input.setAttribute("max","1330");
 input.setAttribute("id","name");
 input.setAttribute("placeholder","enter kural number");
 
@@ -41,7 +44,6 @@ async function foo(){
     let result=await fetch(url);
     let result1=await result.json();
     var div_content='';
-   // for(var i in result1){     
        var div1=document.createElement("div");
        div1.setAttribute("class","col-lg-6");
     
@@ -65,8 +67,24 @@ async function foo(){
      </div>`;
             div2.innerHTML=div_content;   
     
-    }catch{
-        div_row.innerHTML='<span>Error</span>';   
+    }catch(error){
+        var div1=document.createElement("div");
+        div1.setAttribute("class","col-lg-6");
+     
+        var div2=document.createElement("div");
+        div2.setAttribute("class","col-lg-6");
+        div2.style.marginTop='10px';
+        div2.style.display='inline-grid';
+       
+        var div3=document.createElement("div");
+        div3.setAttribute("class","col-lg-6");
+        var div_content_no=`<div class="list-group" style="text-align:left;">
+       <a href="#" class="list-group-item list-group-item-action active">
+       No Thirukural found 
+       </a>
+      </div>`;
+     
+     div2.innerHTML=div_content_no;   
     }
     div_parent.append(div1,div2,div3);
     div_row.append(div_parent);
