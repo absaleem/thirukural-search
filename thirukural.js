@@ -16,6 +16,7 @@ h1_tag.innerHTML='1330 Thirukkural poems and explanation in Tamil and English ';
 var input=document.createElement("input");
 input.setAttribute("type","text");
 input.setAttribute("id","name");
+input.setAttribute("placeholder","enter kural number");
 
 var button=document.createElement("button");
 button.setAttribute("type","button");
